@@ -47,7 +47,7 @@ export function Navbar() {
             <img 
               src="/logo.png" 
               alt="Electrical Services Logo" 
-              className="w-10 h-10 object-contain transition-transform duration-300 group-hover:scale-105"
+              className="w-15 h-15 object-contain transition-transform duration-300 group-hover:scale-105"
             />
             <div className="flex flex-col">
               <span className="font-heading font-bold text-lg leading-tight tracking-wide">
