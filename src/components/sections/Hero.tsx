@@ -124,20 +124,21 @@ export function Hero() {
               </div>
               
               {/* Floating Trust Card */}
-              <motion.div 
-                animate={{ y: [0, -10, 0] }}
-                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                style={{ transform: "translateZ(80px)" }}
-                className="absolute bottom-12 -left-12 bg-surface/90 backdrop-blur-xl p-6 rounded-2xl border border-border-subtle shadow-2xl flex items-center gap-4 max-w-[280px]"
-              >
-                <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center shrink-0">
-                  <Shield className="w-6 h-6 text-accent" />
-                </div>
-                <div>
-                  <h4 className="font-heading font-bold text-white leading-tight">Licensed & Insured</h4>
-                  <p className="text-sm text-text-secondary mt-1">100% safe & compliant electrical work</p>
-                </div>
-              </motion.div>
+              <div className="absolute bottom-12 -left-12 max-w-[280px]" style={{ transform: "translateZ(80px)" }}>
+                <motion.div 
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                  className="bg-surface/90 backdrop-blur-xl p-6 rounded-2xl border border-border-subtle shadow-2xl flex items-center gap-4 w-full"
+                >
+                  <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center shrink-0">
+                    <Shield className="w-6 h-6 text-accent" />
+                  </div>
+                  <div>
+                    <h4 className="font-heading font-bold text-white leading-tight">Licensed & Insured</h4>
+                    <p className="text-sm text-text-secondary mt-1">100% safe & compliant electrical work</p>
+                  </div>
+                </motion.div>
+              </div>
             </motion.div>
           </div>
           

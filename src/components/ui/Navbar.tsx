@@ -41,7 +41,7 @@ export function Navbar() {
           : 'bg-transparent py-5'
       )}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-50">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3 group">
             <img 
@@ -107,11 +107,11 @@ export function Navbar() {
       {/* Mobile Nav Overlay */}
       <div
         className={cn(
-          'fixed inset-0 top-[60px] bg-background/95 backdrop-blur-xl z-40 transition-transform duration-300 md:hidden',
+          'fixed inset-0 bg-black/95 backdrop-blur-3xl z-40 transition-transform duration-300 md:hidden',
           isOpen ? 'translate-x-0' : 'translate-x-full'
         )}
       >
-        <nav className="flex flex-col p-6 gap-6 h-full overflow-y-auto">
+        <nav className="flex flex-col p-6 pt-28 gap-6 h-full overflow-y-auto">
           {navLinks.map((link) => (
             <Link
               key={link.name}
