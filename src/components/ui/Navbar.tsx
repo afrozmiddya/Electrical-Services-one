@@ -43,10 +43,12 @@ export function Navbar() {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center border border-primary/20 group-hover:bg-primary/20 transition-colors">
-              <span className="font-heading font-bold text-primary text-xl">ES</span>
-            </div>
+          <Link to="/" className="flex items-center gap-3 group">
+            <img 
+              src="/logo.png" 
+              alt="Electrical Services Logo" 
+              className="w-10 h-10 object-contain transition-transform duration-300 group-hover:scale-105"
+            />
             <div className="flex flex-col">
               <span className="font-heading font-bold text-lg leading-tight tracking-wide">
                 Electrical

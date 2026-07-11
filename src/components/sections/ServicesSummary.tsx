@@ -59,7 +59,7 @@ export function ServicesSummary() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
-              className="group relative overflow-hidden h-full flex flex-col"
+              className="group relative overflow-hidden h-full flex flex-col hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-primary/20 hover:border-primary/40 transition-all duration-300"
             >
               <div className="h-48 overflow-hidden relative">
                 <div className="absolute inset-0 bg-gradient-to-t from-surface to-transparent z-10" />

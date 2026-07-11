@@ -34,19 +34,24 @@ export function ContactSection() {
     setIsSubmitting(true);
     console.log('Form data submitted:', data);
     try {
-      // Simulate API call for now (Web3Forms/FormSubmit integration would go here)
-      // await fetch('https://api.web3forms.com/submit', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({ access_key: 'YOUR_ACCESS_KEY', ...data })
-      // });
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          access_key: '4b688143-1411-4c3e-8dac-54cdbf2e2a58', 
+          ...data 
+        })
+      });
       
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      setIsSuccess(true);
-      reset();
-      
-      // Reset success message after 5 seconds
-      setTimeout(() => setIsSuccess(false), 5000);
+      if (response.ok) {
+        setIsSuccess(true);
+        reset();
+        
+        // Reset success message after 5 seconds
+        setTimeout(() => setIsSuccess(false), 5000);
+      } else {
+        console.error('Failed to submit form to Web3Forms');
+      }
     } catch (error) {
       console.error('Error submitting form:', error);
     } finally {

@@ -1,10 +1,38 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { Phone, MessageCircle, Zap, Shield, Clock, Star } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { Link } from 'react-router-dom';
 
 export function Hero() {
+  const ref = useRef<HTMLDivElement>(null);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x, { stiffness: 300, damping: 30 });
+  const mouseYSpring = useSpring(y, { stiffness: 300, damping: 30 });
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["12deg", "-12deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-12deg", "12deg"]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    if (!ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+    x.set(xPct);
+    y.set(yPct);
+  };
+  
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
   return (
     <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden">
       {/* Background with abstract shapes */}
@@ -72,36 +100,46 @@ export function Hero() {
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-            className="relative lg:h-[600px] hidden lg:block"
-          >
-            <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-tr from-surface to-surface/50 border border-border-subtle overflow-hidden">
-              <img 
-                src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2069&auto=format&fit=crop"
-                alt="Professional Electrician"
-                className="w-full h-full object-cover mix-blend-overlay opacity-80"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
-            </div>
-            
-            {/* Floating Trust Card */}
-            <motion.div 
-              animate={{ y: [0, -10, 0] }}
-              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-              className="absolute bottom-12 -left-12 bg-surface/90 backdrop-blur-xl p-6 rounded-2xl border border-border-subtle shadow-2xl flex items-center gap-4 max-w-[280px]"
+          <div className="relative lg:h-[600px] hidden lg:block" style={{ perspective: 1000 }}>
+            <motion.div
+              ref={ref}
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+              style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+              className="w-full h-full relative"
             >
-              <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center shrink-0">
-                <Shield className="w-6 h-6 text-accent" />
+              <div 
+                className="absolute inset-0 rounded-[2rem] bg-gradient-to-tr from-surface to-surface/50 border border-border-subtle overflow-hidden transition-transform duration-200" 
+                style={{ transform: "translateZ(30px)" }}
+              >
+                <img 
+                  src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2069&auto=format&fit=crop"
+                  alt="Professional Electrician"
+                  className="w-full h-full object-cover mix-blend-overlay opacity-80"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
               </div>
-              <div>
-                <h4 className="font-heading font-bold text-white leading-tight">Licensed & Insured</h4>
-                <p className="text-sm text-text-secondary mt-1">100% safe & compliant electrical work</p>
-              </div>
+              
+              {/* Floating Trust Card */}
+              <motion.div 
+                animate={{ y: [0, -10, 0] }}
+                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                style={{ transform: "translateZ(80px)" }}
+                className="absolute bottom-12 -left-12 bg-surface/90 backdrop-blur-xl p-6 rounded-2xl border border-border-subtle shadow-2xl flex items-center gap-4 max-w-[280px]"
+              >
+                <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center shrink-0">
+                  <Shield className="w-6 h-6 text-accent" />
+                </div>
+                <div>
+                  <h4 className="font-heading font-bold text-white leading-tight">Licensed & Insured</h4>
+                  <p className="text-sm text-text-secondary mt-1">100% safe & compliant electrical work</p>
+                </div>
+              </motion.div>
             </motion.div>
-          </motion.div>
+          </div>
           
         </div>
       </div>
