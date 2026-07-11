@@ -51,14 +51,14 @@ export function WhyChooseUs() {
                 <div className="bg-surface/90 backdrop-blur-md p-6 rounded-2xl border border-border-subtle shadow-xl flex items-center justify-around">
                   <div className="text-center">
                     <div className="text-3xl font-heading font-bold text-primary flex items-center justify-center">
-                      <AnimatedCounter value={15} />+
+                      <AnimatedCounter value={10} />+
                     </div>
                     <div className="text-sm text-text-secondary mt-1">Years Exp.</div>
                   </div>
                   <div className="w-px h-12 bg-border-subtle" />
                   <div className="text-center">
                     <div className="text-3xl font-heading font-bold text-primary flex items-center justify-center">
-                      <AnimatedCounter value={100} />%
+                      <AnimatedCounter value={99} />%
                     </div>
                     <div className="text-sm text-text-secondary mt-1">Guaranteed</div>
                   </div>

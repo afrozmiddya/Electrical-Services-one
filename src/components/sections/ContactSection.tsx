@@ -96,21 +96,21 @@ export function ContactSection() {
                 </div>
               </a>
               
-              <div className="flex items-center gap-4 p-4 rounded-2xl bg-surface border border-border-subtle">
+              <a href="https://maps.app.goo.gl/MsdEmFiYTwQE6mYKA" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 rounded-2xl bg-surface border border-border-subtle hover:border-primary/50 transition-colors group">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
                   <MapPin className="w-6 h-6 text-primary" />
                 </div>
                 <div>
                   <div className="text-sm text-text-secondary font-medium">Location</div>
-                  <div className="text-lg font-bold text-text-main">Park Circus, Kolkata</div>
+                  <div className="text-lg font-bold text-text-main group-hover:text-primary transition-colors">Park Circus 21A Nasiruddin Road, 17, Kolkata, West Bengal 700017</div>
                 </div>
-              </div>
+              </a>
             </div>
 
             {/* Map Embed */}
             <div className="h-64 rounded-2xl overflow-hidden border border-border-subtle relative mt-4">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14739.066318991443!2d88.3562635928646!3d22.540989045330364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02771c1b181dbb%3A0xc48c08fc4ea2b1ec!2sPark%20Circus%2C%20Kolkata%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1701234567890!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14738!2d88.3623537!3d22.5414571!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0277a00b083f91%3A0x8e7919862745bb94!2sElectrical%20services!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

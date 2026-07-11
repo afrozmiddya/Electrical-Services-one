@@ -113,15 +113,15 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <div className="flex items-start gap-3 text-text-secondary group">
-                  <div className="w-8 h-8 rounded-lg bg-background flex items-center justify-center border border-border-subtle shrink-0">
+                <a href="https://maps.app.goo.gl/MsdEmFiYTwQE6mYKA" target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 text-text-secondary hover:text-primary transition-colors group">
+                  <div className="w-8 h-8 rounded-lg bg-background flex items-center justify-center border border-border-subtle group-hover:border-primary/30 shrink-0">
                     <MapPin className="w-4 h-4 text-primary" />
                   </div>
                   <div className="flex flex-col">
                     <span className="text-sm">Location</span>
-                    <span className="font-semibold text-text-main text-sm">Park Circus, Kolkata, West Bengal</span>
+                    <span className="font-semibold text-text-main text-sm group-hover:text-primary transition-colors">Kolkata, West Bengal</span>
                   </div>
-                </div>
+                </a>
               </li>
             </ul>
           </div>
